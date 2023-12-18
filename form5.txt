@@ -1,0 +1,123 @@
+OpenFileDialog ofd = new OpenFileDialog();
+ofd.Filter = "[image sourse(* .jpg; * .jpeg;)|* .jpg; * .jpeg]";
+if (ofd.ShowDialog() == DialogResult.OK)
+{
+    label2.Text = ofd.FileName;
+    pictureBox1.Image = new Bitmap(ofd.FileName);
+
+}
+
+*Password validation
+String password1 = textBox1.Text;
+String password2 = textBox2.Text;
+if (string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(password2))
+{
+MessageBox.Show("Password is empty", "Password Validation", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+}
+else if (password1 == password2)
+{
+MessageBox.Show("Password is OK", "Password Validation", MessageBoxButtons.OK,
+MessageBoxIcon.Information);
+}
+else if (password1 != password2)
+{
+MessageBox.Show("Password is Wrong", "Password Validation", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+}
+
+*Email validation
+string email = textBox3.Text;
+if (string.IsNullOrEmpty(email))
+{
+MessageBox.Show("Email is empty", "Email Validation", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+}
+*isValidEmail is created after the buttonClick close bracket
+else if (isValidEmail(email))
+{
+MessageBox.Show("Email is Ok", "Email Validation", MessageBoxButtons.OK,
+MessageBoxIcon.Information);
+}
+else
+{
+MessageBox.Show("Email is Wrong", "Email Validation", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+}
+*isValidEmail method
+private bool isValidEmail(string email)
+{
+try
+{
+var mailaddress = new System.Net.Mail.MailAddress(email);
+return true;
+}
+catch
+{
+return false;
+}
+}
+
+*gender validation
+//getgender is a method to take the gender from radio buttons
+//It is created after the buttonClick close bracket
+string getgendervalue = getgender();
+
+*gender down
+private string getgender()
+{
+if (radioButton1.Checked)
+return radioButton1.Text;
+else if (radioButton2.Checked)
+return radioButton2.Text;
+else
+return null;
+}
+
+*Start DOB validation
+DateTime birthdate = dateTimePicker1.Value;
+DateTime currentdate = DateTime.Now;
+
+*datestring is the show the DOB
+string datestring = birthdate.ToString("d");
+int age = currentdate.Year - birthdate.Year;
+
+*agestring is the calculated age using DOB
+string agestring = age.ToString();
+
+*simple cal > inside button
+int value1 = (int)numericUpDown1.Value;
+int value2 = (int)numericUpDown2.Value;
+if (comboBox1.SelectedIndex == 0)
+{
+int sum = value1 + value2;
+label2.Text = sum.ToString();
+}
+if (comboBox1.SelectedIndex == 1)
+{
+int sub = value1 - value2;
+label2.Text = sub.ToString();
+}
+if (comboBox1.SelectedIndex == 2)
+{
+int mul = value1 * value2;
+label2.Text = mul.ToString();
+}
+if (comboBox1.SelectedIndex == 3)
+{
+int div = value1 / value2;
+label2.Text = div.ToString();
+}
+
+
+*String password = "1234";
+
+*textBox3.Text = string.Empty;
+
+*string uename = textBox3.Text;
+
+*if (string.IsNullOrEmpty(uename)
+
+* Form1 form = new Form1();
+ form.Show();
+ this.Hide();
