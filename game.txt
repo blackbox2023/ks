@@ -1,0 +1,62 @@
+private bool isValidEmail(string email)
+{
+    try
+    {
+        var mailaddress = new System.Net.Mail.MailAddress(email);
+        return true;
+    }
+    catch
+    {
+        return false;
+    }
+}
+
+
+private String comboout()
+{
+    String combox = "";
+
+    if (comboBox1.SelectedIndex == 0)
+    {
+        combox = "married";
+
+    }
+    else if (comboBox1.SelectedIndex == 1)
+    {
+        combox = "unmarried";
+
+    }
+    return combox;
+
+}
+
+ private string getgender()
+ {
+     if (radioButton1.Checked)
+     {
+         return radioButton1.Text;
+     }
+     else if (radioButton2.Checked)
+     {
+         return radioButton2.Text;
+     }
+     else
+     {
+         return null;
+     }
+ }
+
+
+ private void button2_Click(object sender, EventArgs e)
+ {
+     OpenFileDialog ofd = new OpenFileDialog();
+     ofd.Filter = "[image files(* .png;)| * .png;]";
+
+     if (ofd.ShowDialog() == DialogResult.OK)
+     {
+         label7.Text = ofd.FileName;
+         pictureBox1.Image = new Bitmap (ofd.FileName);
+     }
+ }
+
+ int data = (int)numericUpDown1.Value;
